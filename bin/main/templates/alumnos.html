@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+  <title>Tabla de Estudiantes</title>
+</head>
+<body>
+  <div class="container">
+    <h1>APP Estudiantes</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Número de Control</th>
+          <th>Nombre</th>
+          <th>Primer Apellido</th>
+          <th>Segundo Apellido</th>
+          <th>Edad</th>
+          <th>Semestre</th>
+          <th>Carrera</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+		<tr th:each="a : ${alumnos}">
+          <td th:text="${a.id}"></td>
+          <td th:text="${a.nombre}"></td>
+          <td th:text="${a.primerAp}"></td>
+          <td th:text="${a.segundoAp}"></td>
+          <td th:text="${a.edad}"></td>
+          <td th:text="${a.semestre}"></td>
+          <td th:text="${a.carrera}"></td>
+          <td>
+			  <a th:href="@{/alumnos/editar/{id}(id=${a.id})}" class="btn btn-primary">Modificar</a>
+			  <a th:href="@{/alumnos/{id}(id=${a.id})}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+        <!-- Agregar más filas de acuerdo a tus necesidades -->
+      </tbody>
+    </table>
+    <button th:href="@{/alumnos/crear}" class="btn btn-success">Agregar</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
