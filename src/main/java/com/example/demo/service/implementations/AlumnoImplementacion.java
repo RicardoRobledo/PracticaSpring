@@ -3,37 +3,40 @@ package com.example.demo.service.implementations;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import com.example.demo.entity.Alumno;
-import com.example.demo.respository.AlumnoRepository;
-import com.example.demo.services.AlumnoService;
 
+import com.example.demo.entity.*;
+import com.example.demo.service.implementations.*;
+import com.example.demo.repository.*;
 
-@Service  // CAMBIO (FALTO)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+import com.example.demo.service.AlumnoService;
+@Service
 public class AlumnoImplementacion implements AlumnoService{
-
 	
 	private AlumnoRepository alumnoRepository;
 	
+	
+
 	public AlumnoImplementacion(AlumnoRepository alumnoRepository) {
+		super();
 		this.alumnoRepository = alumnoRepository;
 	}
 	
 	
+
 	@Override
 	public Alumno guardarAlumno(Alumno alumno) {
 		return alumnoRepository.save(alumno);
 	}
 
 	@Override
-	public boolean eliminarAlumno(String id) {
-		boolean res = false;
+	public boolean aliminarAlumno(String id) {
 		try {
 			alumnoRepository.deleteById(id);
-			res = true;
+			return true;
 		} catch (Exception e) {
-			System.out.println("Error en la eliminacion");
+			System.err.println("Error en la eliminaciòn");
+			return false;
 		}
-		return res;
 	}
 
 	@Override
@@ -43,17 +46,12 @@ public class AlumnoImplementacion implements AlumnoService{
 
 	@Override
 	public List<Alumno> obtenerTodos() {
-		// TODO Auto-generated method stub
 		return alumnoRepository.findAll();
 	}
 
 	@Override
 	public Alumno obtenerAlumnoPorID(String id) {
-		// TODO Auto-generated method stub
 		return alumnoRepository.findById(id).get();
 	}
-	
-	
-	
 
 }

@@ -1,67 +1,67 @@
 package com.example.demo.entity;
-
-import jakarta.persistence.*;
-
+import  jakarta.persistence.*;
 @Entity
-@Table(name = "Alumnos")
+@Table(name="Alumno")
 public class Alumno {
 	
 	@Id
-	private String id;//numControl
+	private String id;//NUMCONTROL
 	
-	@Column(name="Nombre", nullable=false)
+	@Column(name="nombre",nullable=false)
 	private String nombre;
 	
-	@Column(name="Primer_Ap", nullable=false)
-	private String primerAp;
+	@Column(name="Primer_Ap",nullable=false)
+	private String primer_ap;
 	
-	@Column(name="Segundo_Ap", nullable=false)
-	private String segundoAp;
+	@Column(name="Segundo_ap",nullable=false)
+	private String segundo_ap;
 	
-	@Column(name="Edad", nullable=false)
+	@Column(name="edad",nullable=false)
 	private byte edad;
 	
-	@Column(name="Semestre", nullable=false)
+	@Column(name="Semestre",nullable=false)
 	private byte semestre;
 	
-	@Column(name="Carrera", nullable=false)
+	@Column(name="Carrera",nullable=false)
 	private String carrera;
-
-	public Alumno() {}
-	public Alumno(String id, String nombre, String primerAp, String segundoAp, byte edad, byte semestre,
+	
+	public Alumno(){};
+	public Alumno(String numControl, String nombre, String primer_ap, String segundo_ap, byte edad, byte semestre,
 			String carrera) {
 		super();
-		this.id = id;
+		this.id = numControl;
 		this.nombre = nombre;
-		this.primerAp = primerAp;
-		this.segundoAp = segundoAp;
+		this.primer_ap = primer_ap;
+		this.segundo_ap = segundo_ap;
 		this.edad = edad;
 		this.semestre = semestre;
 		this.carrera = carrera;
 	}
+	
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
+	
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getPrimerAp() {
-		return primerAp;
+	public String getPrimer_ap() {
+		return primer_ap;
 	}
-	public void setPrimerAp(String primerAp) {
-		this.primerAp = primerAp;
+	public void setPrimer_ap(String primer_ap) {
+		this.primer_ap = primer_ap;
 	}
-	public String getSegundoAp() {
-		return segundoAp;
+	public String getSegundo_ap() {
+		return segundo_ap;
 	}
-	public void setSegundoAp(String segundoAp) {
-		this.segundoAp = segundoAp;
+	public void setSegundo_ap(String segundo_ap) {
+		this.segundo_ap = segundo_ap;
 	}
 	public byte getEdad() {
 		return edad;
@@ -81,9 +81,12 @@ public class Alumno {
 	public void setCarrera(String carrera) {
 		this.carrera = carrera;
 	}
-	
+
 
 	
 	
 	
+	
+	
+
 }

@@ -1,137 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
+
 <head>
-<meta charset="utf-8">
-<title>App ABCC Escolares</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Agregar Alumno</title>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <!-- Brand -->
-  <a class="navbar-brand" href="#">APP Escolares</a>
-
-  <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link"  href="" >Alumnos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">Docentes</a>
-      </li>
-    </ul>
+  <div class="container">
+    <h1>Agregar Alumno</h1>
+    <form method="POST" th:action="@{/alumnos/{id} (id=${alumno.id}) }" th:object="${alumno}">
+      <div class="mb-3">
+        <label for="noControl" class="form-label">Número de Control:</label>
+        <input type="text" class="form-control" id="noControl"  th:field="*{id}" required>
+      </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" th:field="*{nombre}" required>
+      </div>
+      <div class="mb-3">
+        <label for="primerAp" class="form-label">Primer Apellido:</label>
+        <input type="text" class="form-control" id="primerAp" th:field="*{primer_ap}" required>
+      </div>
+      <div class="mb-3">
+        <label for="segundoAp" class="form-label">Segundo Apellido:</label>
+        <input type="text" class="form-control" id="segundoAp" th:field="*{segundo_ap}" required>
+      </div>
+      <div class="mb-3">
+        <label for="edad" class="form-label">Edad:</label>
+        <input type="number" class="form-control" id="edad" th:field="*{edad}" required>
+      </div>
+      <div class="mb-3">
+        <label for="semestre" class="form-label">Semestre:</label>
+        <input type="number" class="form-control" id="semestre" th:field="*{semestre}" required>
+      </div>
+      <div class="mb-3">
+        <label for="carrera" class="form-label">Carrera:</label>
+        <input type="text" class="form-control" id="carrera" th:field="*{carrera}" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Agregar cambios</button>
+      <a  th:href="@{/alumnos}" class = "btn btn-info btn-sm mb-3">Regresar</a>
+    </form>
   </div>
-</nav>
 
-
-	<br>
-<br>
-	<div class = "container">
-		<div class = "row">
-			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-				<h1 class = "text-center"> EDITAR Alumno </h1>
-				<div class = "card-body">
-					
-					<form th:action="@{/alumnos/{id} (id=${alumno.id})}" 
-								th:object = "${alumno}" method="POST">
-				
-						<div class ="form-group">
-							<label> Numero de control: </label>
-							<input
-							type = "text"
-							name = "id"
-							th:field = "*{id}"
-							class = "form-control"
-							placeholder="Ingresa numero de control" 
-							/>
-						</div>
-						
-						<div class ="form-group">
-							<label> Nombre: </label>
-							<input
-							type = "text"
-							name = "nombre"
-							th:field = "*{nombre}"
-							class = "form-control"
-							placeholder="Ingresa nombre" 
-							/>
-						</div>
-						
-						<div class ="form-group">
-							<label> Primer Apellido: </label>
-							<input
-							type = "text"
-							name = "primerAp"
-							th:field = "*{primerAp}"
-							class = "form-control"
-							placeholder="Ingresa Primer Apellido" 
-							/>
-						</div>
-
-						<div class ="form-group">
-							<label> Segundo Apellido: </label>
-							<input
-							type = "text"
-							name = "segundoAp"
-							th:field = "*{segundoAp}"
-							class = "form-control"
-							placeholder="Ingresa Segundo Apellido" 
-							/>
-						</div>
-
-						<div class ="form-group">
-							<label> Edad: </label>
-							<input
-							type = "text"
-							name = "edad"
-							th:field = "*{edad}"
-							class = "form-control"
-							placeholder="Ingresa Edad" 
-							/>
-						</div>
-
-						<div class ="form-group">
-							<label> Semestre: </label>
-							<input
-							type = "text"
-							name = "semestre"
-							th:field = "*{semestre}"
-							class = "form-control"
-							placeholder="Ingresa semestre" 
-							/>
-						</div>
-
-						<div class ="form-group">
-							<label> Carrera: </label>
-							<input
-							type = "text"
-							name = "carrera"
-							th:field = "*{carrera}"
-							class = "form-control"
-							placeholder="Ingresa carrera" 
-							/>
-						</div>
-						
-						<div class = "box-footer">
-							<button type="submit" class = "btn btn-primary">
-								GUARDAR CAMBIOS
-							</button>
-						</div>
-					</form>
-				
-				</div>
-			</div>
-		</div>
-	</div>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-</html>
 
+</html>

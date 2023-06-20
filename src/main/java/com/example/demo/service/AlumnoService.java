@@ -2,24 +2,25 @@ package com.example.demo.service;
 
 import java.util.List;
 
-import com.example.demo.entity.Alumno;
-
+import com.example.demo.entity.*;
 
 public interface AlumnoService {
-	
-	//Altas
+	//ALTAS
 	Alumno guardarAlumno(Alumno alumno);
 	
-	//bajas
-	boolean eliminarAlumno(String id);  //id => numero control
+	//BAJAS
+	boolean aliminarAlumno(String id);
 	
-	//cambios
+	//CAMBIOS
 	Alumno modificarAlumno(Alumno alumno);
 	
-	
-	//consultas
-	List<Alumno> obtenerTodos(); //getAll();
-	
+	//CONSULTAS
+	List<Alumno> obtenerTodos(); // gretAll()
 	Alumno obtenerAlumnoPorID(String id);
 	
+	
+	
+	
+	
+
 }
